@@ -15,23 +15,29 @@ class App extends React.Component {
      this.postCsv = this.postCsv.bind(this); // when server returns Csv from json request, update the state so Csv component will render
     }
 
-    // handleJson () {
+    handleJson (event, json) {
+    event.preventDefault();
+    this.setState({
+        json: json
+    })
+    };
 
-    // };
+    handleSubmit (event) {
+    event.preventDefault();
+    var json = this.state.json;
 
-    // handleSubmit () {
+    };
 
-    // };
+    postCsv (event) {
+    event.preventDefault();
 
-    // postCsv () {
-
-    // };
+    };
 
     render() {
         return (
             <div>
-            < Json />
-            <Csv output = {this.state.Csv}/>
+            < Json handleJson = {this.handleJson} handleSubmit={this.handleSubmit}/>
+            <Csv output = {this.state.Csv} postCsv = {this.postCsv} />
             </div>
         )
 
