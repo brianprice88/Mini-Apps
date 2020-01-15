@@ -9,7 +9,7 @@ class App extends React.Component {
         super(props);
         this.state = {
           json: '',
-          Csv: '', 
+          Csv: [], 
         }
      this.handleJson = this.handleJson.bind(this); // update this.state.json as it's added to textarea
      this.handleSubmit = this.handleSubmit.bind(this); //send this.state.json to server when json text is submitted, get csv and set it to csv state as callback

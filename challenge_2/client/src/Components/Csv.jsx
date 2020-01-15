@@ -4,9 +4,9 @@ import ReactDom from 'react-dom';
 var Csv = (props) => (
 //Csv output to go here
 <div>
-    <div>
-    {props.output}
-    </div>  
+    {props.output.map(array => 
+    <div>{array}</div>)
+    }
 </div>
 
 )

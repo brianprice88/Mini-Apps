@@ -1,7 +1,8 @@
 var controllers = {
 get: (req, res) => {
     var converter = function (object) {
-        var result = 'firstName, lastName, county, city, role, sales\n';
+        var result = [];
+        result.push(['firstName, lastName, county, city, role, sales'])
         var recurser = function (object) {
         var firstName = object.firstName;
         var lastName = object.lastName;
@@ -9,7 +10,7 @@ get: (req, res) => {
         var city = object.city;
         var role = object.role;
         var sales = object.sales;
-        result += `${firstName} , ${lastName} , ${county} , ${city} , ${role} , ${sales} \n`
+        result.push([`${firstName}, ${lastName}, ${county}, ${city}, ${role}, ${sales}`])
         if (object.children.length > 0) {
           for (var i = 0; i < object.children.length; i++) {
             recurser(object.children[i])
@@ -23,6 +24,7 @@ get: (req, res) => {
 
         var csv = converter(JSON.parse(req.query[0]));
     //original json data can be found at req.query[0]
+    console.log(csv)
   res.send(csv)
 }
 
