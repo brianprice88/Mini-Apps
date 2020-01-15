@@ -8,7 +8,7 @@ const cors = require('cors');
 const path = require('path');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded ({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use('/', express.static(path.join(__dirname, 'public')))
 
@@ -26,11 +26,12 @@ db.connect();
 //
 
 app.get('/api', (req, res) => (
-db.query("SELECT * FROM Users", (err, data) =>
-  {if (err) {res.send(err)}
-  else {res.send(data)}
-}
-)
+    db.query("SELECT * FROM Users",
+        (err, data) => {
+            if (err) { res.send(err) }
+            else { res.send(data) }
+        }
+    )
 )
 );
 
