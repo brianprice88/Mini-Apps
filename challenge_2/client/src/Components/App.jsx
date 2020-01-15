@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import Json from './Json.jsx';
-import Csv from './Csv.jsx'
+import Csv from './Csv.jsx';
+import axios from 'axios';
 
 class App extends React.Component {
     constructor(props) {
@@ -11,33 +12,34 @@ class App extends React.Component {
           Csv: '', 
         }
      this.handleJson = this.handleJson.bind(this); // update this.state.json as it's added to textarea
-     this.handleSubmit = this.handleSubmit.bind(this); //send this.state.json to server when json text is submitted
-     this.postCsv = this.postCsv.bind(this); // when server returns Csv from json request, update the state so Csv component will render
+     this.handleSubmit = this.handleSubmit.bind(this); //send this.state.json to server when json text is submitted, get csv and set it to csv state as callback
     }
 
-    handleJson (event, json) {
+    handleJson (event) {
     event.preventDefault();
     this.setState({
-        json: json
+        json: event.target.value
     })
     };
 
     handleSubmit (event) {
     event.preventDefault();
     var json = this.state.json;
-
+    axios.get('/api', {params: json})
+    .then(response => {
+        this.setState({
+            Csv: response.data
+        })
+    })
+    document.getElementById('form').reset();
     };
 
-    postCsv (event) {
-    event.preventDefault();
-
-    };
 
     render() {
         return (
             <div>
             < Json handleJson = {this.handleJson} handleSubmit={this.handleSubmit}/>
-            <Csv output = {this.state.Csv} postCsv = {this.postCsv} />
+            <Csv output = {this.state.Csv}/>
             </div>
         )
 

@@ -5,11 +5,11 @@ var Json = (props) => (
 //Textarea to submit Json
 //Submit button 
 <div>
-    <form>
+    <form id='form'>
     <div>
-    <textarea rows = '50' cols='200'placeholder='Json goes here'></textarea>
+    <textarea rows = '50' cols='100'placeholder='Json goes here' onChange = {function(event) {props.handleJson(event)}}></textarea>
     </div>
-    <button>Submit</button>
+    <button onClick = {function(event) {props.handleSubmit(event)}}>Submit</button>
     </form>
 </div>
     

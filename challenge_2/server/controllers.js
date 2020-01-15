@@ -1,6 +1,29 @@
 var controllers = {
 get: (req, res) => {
-  res.send('converting to csv!')
+    var converter = function (object) {
+        var result = 'firstName, lastName, county, city, role, sales\n';
+        var recurser = function (object) {
+        var firstName = object.firstName;
+        var lastName = object.lastName;
+        var county = object.county;
+        var city = object.city;
+        var role = object.role;
+        var sales = object.sales;
+        result += `${firstName} , ${lastName} , ${county} , ${city} , ${role} , ${sales} \n`
+        if (object.children.length > 0) {
+          for (var i = 0; i < object.children.length; i++) {
+            recurser(object.children[i])
+          }
+        } else 
+        {return}
+        }
+        recurser(object)
+        return result;
+        };
+
+        var csv = converter(JSON.parse(req.query[0]));
+    //original json data can be found at req.query[0]
+  res.send(csv)
 }
 
 }
