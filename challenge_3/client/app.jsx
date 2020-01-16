@@ -1,5 +1,6 @@
 import React from "React";
 import ReactDom from "React-Dom";
+import Axios from "axios";
 
 class App extends React.Component {
     constructor(props) {
@@ -24,11 +25,12 @@ class App extends React.Component {
             billing_zip: ''
         }
         this.togglef1 = this.togglef1.bind(this);
-        this.togglef2 = this.togglef3.bind(this);
+        this.togglef2 = this.togglef2.bind(this);
         this.togglef3 = this.togglef3.bind(this);
         this.togglePurchase = this.togglePurchase.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handlePurchase = this.handlePurchase.bind(this);
 
     }
 
@@ -72,11 +74,37 @@ class App extends React.Component {
         this.setState({
             f3: !this.state.f3,
             purchase: !this.state.purchase
-        })
+        });
+    };
+
+    handlePurchase(event){
+      event.preventDefault();
+      var purchase = {
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+        address_line_1: this.state.address_line_1,
+        address_line_2: this.state.address_line_2,
+        city: this.state.city,
+        state: this.state.state,
+        zip_code: this.state.zip_code,
+        credit_card_number: this.state.credit_card_number,
+        expiry_date: this.state.expiry_date,
+        CVV: this.state.CVV,
+        billing_zip: this.state.billing_zip
+      }
+
+      Axios.post('/api', {purchase})
+      .then(response => 
+        this.setState({
+            checkout: true,
+            f1: false,
+            f2: false,
+            f3: false,
+            purchase: false
+        }))
     }
 
-
-    //purchase button onClick = collect data, send axios, reset form to homepage
 
     render() {
         return (
@@ -88,7 +116,7 @@ class App extends React.Component {
  />) : ''}
                 {this.state.f3 ? (<F3 togglePurchase={this.togglePurchase} handleChange={this.handleChange} handleSubmit = {this.handleSubmit}
  />) : ''}
-                {this.state.purchase ? (<button name="Purchase">Purchase</button>) : ''}
+                {this.state.purchase ? (<button name="Purchase" onClick={this.handlePurchase}>Purchase</button>) : ''}
             </div>
         )
     }
@@ -99,9 +127,9 @@ var F1 = (props) => (
         <form onSubmit = {props.handleSubmit}>
             <input type='text' name='name' placeholder='name' onChange={function (event) { props.handleChange(event) }}
             ></input>
-            <input type='text' name='email' placeholder='email' onChange={function (event) { props.handleChange(event) }}
+            <input type='email' name='email' placeholder='email' onChange={function (event) { props.handleChange(event) }}
             ></input>
-            <input type='text' name='password' placeholder='password' onChange={function (event) { props.handleChange(event) }}
+            <input type='password' name='password' placeholder='password' onChange={function (event) { props.handleChange(event) }}
             ></input>
             <button name="next" onClick={function (event) { props.togglef2(event) }}>Next</button>
         </form>
@@ -131,7 +159,7 @@ var F3 = (props) => (
         <form onSubmit = {props.handleSubmit}>
             <input type='text' name='credit_card_number' placeholder='credit card #' onChange={function (event) { props.handleChange(event) }}
             ></input>
-            <input type='text' name='expiry_date:' placeholder='expiry date (MMDDYY)' onChange={function (event) { props.handleChange(event) }}
+            <input type='text' name='expiry_date' placeholder='expiry date (MMDDYY)' onChange={function (event) { props.handleChange(event) }}
             ></input>
             <input type='text' name='CVV' placeholder='CVV' onChange={function (event) { props.handleChange(event) }}
             ></input>
