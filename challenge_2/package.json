@@ -1,0 +1,35 @@
+{
+  "name": "csv_report_generator",
+  "version": "1.0.0",
+  "description": "generates csv reports from json data",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "react-dev": "webpack -d --watch",
+    "start": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "/Users/brianprice/Desktop/Coding/Hack Reactor/Solo sprints/hrla34-mini-apps-1/challenge_2/"
+  },
+  "author": "Brian Price",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.23.0",
+    "webpack": "^2.7.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.15.0",
+    "mysql": "^2.16.0",
+    "nodemon": "^2.0.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "sqlite3": "^4.0.6"
+  }
+}
