@@ -1,7 +1,7 @@
 {
-  "name": "challenge_3",
+  "name": "challenge_4",
   "version": "1.0.0",
-  "description": "Multistep Checkout Experience",
+  "description": "Connect Four",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "/Users/brianprice/Desktop/Coding/Hack Reactor/Solo sprints/hrla34-mini-apps-1/challenge_3/"
+    "url": "/Users/brianprice/Desktop/Coding/Hack Reactor/Solo sprints/hrla34-mini-apps-1/challenge_4/"
   },
   "author": "Brian Price",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "express": "^4.17.1",
     "mysql": "^2.17.1",
     "nodemon": "^2.0.2",
+    "path": "^0.12.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
