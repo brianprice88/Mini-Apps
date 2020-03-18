@@ -31,7 +31,6 @@ class App extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handlePurchase = this.handlePurchase.bind(this);
-
     }
 
     handleChange(event) {
@@ -41,7 +40,7 @@ class App extends React.Component {
         })
     };
 
-    handleSubmit (event) {
+    handleSubmit(event) {
         event.preventDefault();
     }
 
@@ -77,32 +76,32 @@ class App extends React.Component {
         });
     };
 
-    handlePurchase(event){
-      event.preventDefault();
-      var purchase = {
-        name: this.state.name,
-        email: this.state.email,
-        password: this.state.password,
-        address_line_1: this.state.address_line_1,
-        address_line_2: this.state.address_line_2,
-        city: this.state.city,
-        state: this.state.state,
-        zip_code: this.state.zip_code,
-        credit_card_number: this.state.credit_card_number,
-        expiry_date: this.state.expiry_date,
-        CVV: this.state.CVV,
-        billing_zip: this.state.billing_zip
-      }
+    handlePurchase(event) {
+        event.preventDefault();
+        var purchase = {
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password,
+            address_line_1: this.state.address_line_1,
+            address_line_2: this.state.address_line_2,
+            city: this.state.city,
+            state: this.state.state,
+            zip_code: this.state.zip_code,
+            credit_card_number: this.state.credit_card_number,
+            expiry_date: this.state.expiry_date,
+            CVV: this.state.CVV,
+            billing_zip: this.state.billing_zip
+        }
 
-      Axios.post('/api', {purchase})
-      .then(response => 
-        this.setState({
-            checkout: true,
-            f1: false,
-            f2: false,
-            f3: false,
-            purchase: false
-        }))
+        Axios.post('/api', { purchase })
+            .then(response =>
+                this.setState({
+                    checkout: true,
+                    f1: false,
+                    f2: false,
+                    f3: false,
+                    purchase: false
+                }))
     }
 
 
@@ -110,12 +109,12 @@ class App extends React.Component {
         return (
             <div>
                 {this.state.checkout ? (<button name="Checkout" onClick={this.togglef1}>Checkout</button>) : ''}
-                {this.state.f1 ? (<F1 togglef2={this.togglef2} handleChange={this.handleChange} handleSubmit = {this.handleSubmit}
- />) : ''}
-                {this.state.f2 ? (<F2 togglef3={this.togglef3} handleChange={this.handleChange} handleSubmit = {this.handleSubmit}
- />) : ''}
-                {this.state.f3 ? (<F3 togglePurchase={this.togglePurchase} handleChange={this.handleChange} handleSubmit = {this.handleSubmit}
- />) : ''}
+                {this.state.f1 ? (<F1 togglef2={this.togglef2} handleChange={this.handleChange} handleSubmit={this.handleSubmit}
+                />) : ''}
+                {this.state.f2 ? (<F2 togglef3={this.togglef3} handleChange={this.handleChange} handleSubmit={this.handleSubmit}
+                />) : ''}
+                {this.state.f3 ? (<F3 togglePurchase={this.togglePurchase} handleChange={this.handleChange} handleSubmit={this.handleSubmit}
+                />) : ''}
                 {this.state.purchase ? (<button name="Purchase" onClick={this.handlePurchase}>Purchase</button>) : ''}
             </div>
         )
@@ -124,7 +123,7 @@ class App extends React.Component {
 
 var F1 = (props) => (
     <div>
-        <form onSubmit = {props.handleSubmit}>
+        <form onSubmit={props.handleSubmit}>
             <input type='text' name='name' placeholder='name' onChange={function (event) { props.handleChange(event) }}
             ></input>
             <input type='email' name='email' placeholder='email' onChange={function (event) { props.handleChange(event) }}
@@ -138,7 +137,7 @@ var F1 = (props) => (
 
 var F2 = (props) => (
     <div>
-        <form onSubmit = {props.handleSubmit}>
+        <form onSubmit={props.handleSubmit}>
             <input type='text' name='address_line_1' placeholder='address line 1' onChange={function (event) { props.handleChange(event) }}
             ></input>
             <input type='text' name='address_line_2' placeholder='address line 2' onChange={function (event) { props.handleChange(event) }}
@@ -156,7 +155,7 @@ var F2 = (props) => (
 
 var F3 = (props) => (
     <div>
-        <form onSubmit = {props.handleSubmit}>
+        <form onSubmit={props.handleSubmit}>
             <input type='text' name='credit_card_number' placeholder='credit card #' onChange={function (event) { props.handleChange(event) }}
             ></input>
             <input type='text' name='expiry_date' placeholder='expiry date (MMDDYY)' onChange={function (event) { props.handleChange(event) }}
