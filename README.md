@@ -32,6 +32,18 @@ mysql -u root < schema.sql (to create the database),
 
 NPM start (to start server)
 
+GROCERY LIST:
+
+Keep track of groceries you need to buy.
+
+NPM install,
+
+NPM run react-dev (to run webpack),
+
+mysql -u root < schema.sql (to create the database),
+
+NPM start (to start server)
+
 GITHUB FETCHER:
 
 Build a full-stack app that takes data from GitHub's API, store that data in a database, and display the data on the app's main page.
