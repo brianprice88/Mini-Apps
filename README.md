@@ -1,6 +1,5 @@
 This is a project I completed as a student at hackreactor. Each app was built in a day.
 
-
 MOVIE LIST:
 
 Keep track of your favorite movies by adding, removing, and searching.
@@ -32,3 +31,15 @@ NPM run build (to run webpack),
 mysql -u root < schema.sql (to create the database),
 
 NPM start (to start server)
+
+GITHUB FETCHER:
+
+Build a full-stack app that takes data from GitHub's API, store that data in a database, and display the data on the app's main page.
+
+NPM install,
+
+NPM run react-dev (to run webpack),
+
+NPM run server-dev (to run server)
+
+** this requires an API key for GitHub **
