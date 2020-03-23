@@ -1,19 +1,34 @@
-This is a project I completed as a student at hackreactor. Challenges 2 and 3 were done individually over the course of one day. Challenges 1, 4 and b1/b2 were substituted with separate projects.
+This is a project I completed as a student at hackreactor. Each app was built in a day.
 
-Challenge 2: build a client-server app that generates CSV reports from JSON data
 
-npm install,
+MOVIE LIST:
 
-npm run react-dev (to run webpack),
+Keep track of your favorite movies by adding, removing, and searching.
 
-npm start (to start server)
+NPM install,
 
-Challenge 3: build a single-page app that takes a user through a series of forms that simulate a shopping cart checkout experience.
+NPM run build (to run webpack),
 
-npm install,
+NPM start (to start server)
 
-npm run build (to rub webpack),
+CSV REPORT GENERATOR:
+
+Build a client-server app that generates CSV reports from JSON data
+
+NPM install,
+
+NPM run react-dev (to run webpack),
+
+NPM start (to start server)
+
+MULTISTEP CHECKOUT EXPERIENCE:
+
+Build a single-page app that takes a user through a series of forms that simulate a shopping cart checkout experience.
+
+NPM install,
+
+NPM run build (to run webpack),
 
 mysql -u root < schema.sql (to create the database),
 
-npm start (to start server)
+NPM start (to start server)
