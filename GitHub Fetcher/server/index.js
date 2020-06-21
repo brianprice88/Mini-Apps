@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express');
 const github = require('../helpers/github.js');
 const mongoose = require('../database/index.js');
