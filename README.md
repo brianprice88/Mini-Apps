@@ -64,4 +64,4 @@ NPM run react-dev (to run webpack),
 
 NPM run server-dev (to run server)
 
-** this requires an API key for GitHub **
+** this requires you create a .env file with a token API key for GitHub **
